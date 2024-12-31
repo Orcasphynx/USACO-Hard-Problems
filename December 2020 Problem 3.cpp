@@ -69,8 +69,10 @@ int main(){
 	
 	//the important thing to remember is that since I am working in to out, I can REMOVE cows from the vectors once I find their solutions
 	while(!eastCows.empty()){
+		//its best to have the counter variable outside the loop for this instance in case the following loop does not run period
+		int j;
 		//now I see how this cow going east interacts with the cows going north (I stop the for loop if the cow stops)
-		for(int j = 0; j < northCows.size();)
+		for(j = 0; j < northCows.size();)
 		{
 			//if the cow going north starts at a higher y-value, I ignore it
 			if(northCows[j].first.second > eastCows[0].first.second){
@@ -96,11 +98,11 @@ int main(){
 				grass[northCows[j].second] = abs(eastCows[0].first.second - northCows[j].first.second);
 				northCows.erase(northCows.begin()+j);
 			}
-			//if we have gone through all the northbound cows and none of them have blocked the eastbound cow, I assume it continues eating onto enternity
-			if(j == northCows.size()){
-				grass[eastCows[0].second] = -1;
-				eastCows.erase(eastCows.begin());
-			}
+		}
+		//if we have gone through all the northbound cows and none of them have blocked the eastbound cow, I assume it continues eating onto enternity
+		if(j == northCows.size()){
+			grass[eastCows[0].second] = -1;
+			eastCows.erase(eastCows.begin());
 		}
 	}
 	
