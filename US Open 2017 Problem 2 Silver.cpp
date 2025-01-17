@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//Problem Name: Bovine Genomics (Silver Version)
+//Problem Name: Bovine Genomics 
 //Link: https://usaco.org/index.php?page=viewproblem2&cpid=739
 
 int main(){
